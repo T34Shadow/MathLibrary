@@ -10,11 +10,12 @@ std::string MathClasses::Colour::ToString() const
 }
 
 MathClasses::Colour::Colour()
-{
+{ 
 }
 
-MathClasses::Colour::Colour(Byte r, Byte g, Byte b, Byte a)
+MathClasses::Colour::Colour(Byte red, Byte green, Byte blue, Byte alpha)
 {
+    colour = (red << 24) | (blue << 16) | (green << 8) | alpha;
 }
 
 Byte MathClasses::Colour::GetRed() const

@@ -6,6 +6,10 @@
 namespace MathClasses
 {
 	Matrix4::Matrix4()
+		:m1(1), m2(0), m3(0),m4(0),
+		 m5(1), m6(0), m7(0), m8(0),
+		 m9(1), m10(0), m11(0), m12(0),
+		 m13(0), m14(0), m15(0), m16(0)
 	{
 	}
 	Matrix4::Matrix4(float a1, float a2, float a3, float a4, float a5, float a6, float a7, float a8, float a9, float a10, float a11, float a12, float a13, float a14, float a15, float a16)

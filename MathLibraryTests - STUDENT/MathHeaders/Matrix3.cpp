@@ -5,6 +5,9 @@
 namespace MathClasses
 {
 	Matrix3::Matrix3()
+		:m1(1), m2(0), m3(0),
+		 m4(0), m5(1), m6(0),
+		 m7(0), m8(0), m9(1)
 	{
 	}
 	Matrix3::Matrix3(float a1, float a2, float a3, float a4, float a5, float a6, float a7, float a8, float a9)

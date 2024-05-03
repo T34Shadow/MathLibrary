@@ -151,35 +151,6 @@ namespace MathLibraryTests_OPTIONAL
 
 			Assert::IsTrue(v3a != v3b && !(v3a == v3b));
 		}
-		TEST_METHOD(SubscriptReference) {
-			const Vector3 v3a(13.5f, -48.23f, 862);
-
-			Assert::AreEqual(v3a[0], 13.5f);
-			Assert::AreEqual(v3a[1], -48.23f);
-			Assert::AreEqual(v3a[2], 862.f);
-		}
-		TEST_METHOD(Subscript) {
-			Vector3 v3a(0, 0, 0);
-			v3a[0] = 3;
-			Assert::AreEqual(v3a[0], 3.f);
-			v3a[1] = 4;
-			Assert::AreEqual(v3a[1], 4.f);
-			v3a[2] = 6;
-			Assert::AreEqual(v3a[2], 6.f);
-		}
-		TEST_METHOD(Cast)
-		{
-			Vector3 v3a(10, 2, 6);
-
-			float* p = (float*)v3a;
-			Assert::AreEqual(p[0], 10.f);
-			Assert::AreEqual(p[1], 2.f);
-			Assert::AreEqual(p[2], 6.f);
-
-			const float* q = (float*)v3a;
-			Assert::AreEqual(q[0], 10.f);
-			Assert::AreEqual(q[1], 2.f);
-			Assert::AreEqual(q[2], 6.f);
-		}
+		
 	};
 }

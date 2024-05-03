@@ -22,6 +22,7 @@ namespace MathClasses
         friend Vector4 operator-(Vector4 a, Vector4 b);
         friend Vector4 operator*(Vector4 a, float b);
         friend Vector4 operator*(float a, Vector4 b);
+        friend Vector4 operator/(Vector4 a, float b);
 
         friend bool operator==(Vector4 a, Vector4 b);
         friend bool operator!=(Vector4 a, Vector4 b);

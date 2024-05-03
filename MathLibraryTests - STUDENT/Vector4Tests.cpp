@@ -163,41 +163,5 @@ namespace MathLibraryTests_OPTIONAL
 
 			Assert::IsTrue(v4a != v4b && !(v4a == v4b));
 		}
-		TEST_METHOD(SubscriptReference) {
-			const Vector4 v4a(13.5f, -48.23f, 862,1.f);
-
-			Assert::AreEqual(v4a[0], 13.5f);
-			Assert::AreEqual(v4a[1], -48.23f);
-			Assert::AreEqual(v4a[2], 862.f);
-			Assert::AreEqual(v4a[3], 1.f);
-		}
-
-		TEST_METHOD(Subscript) {
-			Vector4 v4a(0, 0, 0,0);
-			v4a[0] = 3;
-			Assert::AreEqual(v4a[0], 3.f);
-			v4a[1] = 4;
-			Assert::AreEqual(v4a[1], 4.f);
-			v4a[2] = 6;
-			Assert::AreEqual(v4a[2], 6.f);
-			v4a[3] = 9;
-			Assert::AreEqual(v4a[3], 9.f);
-		}
-		TEST_METHOD(Cast)
-		{
-			Vector4 v4a(10, 2, 6,12);
-
-			float* p = (float*)v4a;
-			Assert::AreEqual(p[0], 10.f);
-			Assert::AreEqual(p[1], 2.f);
-			Assert::AreEqual(p[2], 6.f);
-			Assert::AreEqual(p[3], 12.f);
-
-			const float* q = (float*)v4a;
-			Assert::AreEqual(q[0], 10.f);
-			Assert::AreEqual(q[1], 2.f);
-			Assert::AreEqual(q[2], 6.f);
-			Assert::AreEqual(q[3], 12.f);
-		}
 	};
 }

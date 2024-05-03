@@ -3,11 +3,16 @@
 namespace MathClasses
 {
 	Vector4::Vector4()
+		: x(0), y(0), z(0), w(0)
 	{
 	}
 
-	Vector4::Vector4(float x, float y, float z, float w)
+	Vector4::Vector4(float _x, float _y, float _z, float _w)
 	{
+		x = _x;
+		y = _y;
+		z = _z;
+		w = _w;
 	}
 
 	std::string Vector4::ToString() const
@@ -20,7 +25,7 @@ namespace MathClasses
 		return 0.0f;
 	}
 
-	float Vector4::Dot(Vector4 o) const
+	float Vector4::Dot(Vector4 _other) const
 	{
 		return 0.0f;
 	}
@@ -34,7 +39,7 @@ namespace MathClasses
 	{
 	}
 
-	Vector4 Vector4::Cross(Vector4 o) const
+	Vector4 Vector4::Cross(Vector4 _other) const
 	{
 		return Vector4();
 	}
@@ -59,6 +64,12 @@ namespace MathClasses
 		return Vector4();
 	}
 
+	Vector4 operator/(Vector4 a, float b)
+	{
+		return Vector4();
+	}
+
+
 	bool operator==(Vector4 a, Vector4 b)
 	{
 		return false;
@@ -67,10 +78,6 @@ namespace MathClasses
 	bool operator!=(Vector4 a, Vector4 b)
 	{
 		return false;
-	}
-	Vector4 operator+(Vector4 a, Vector4 b)
-	{
-		return Vector4();
 	}
 }
 

@@ -29,8 +29,9 @@ namespace MathClasses
 
 	void Vector3::Normalise()
 	{
+		//if mag retures a 0, reture a vector(0,0,0)
 		float mag = Magnitude();
-
+		
 		x /= mag;
 		y /= mag;
 		z /= mag;
@@ -67,19 +68,39 @@ namespace MathClasses
 
 	Vector3 operator+(Vector3 a, Vector3 b)
 	{
-		return Vector3();
+		Vector3 sum;
+		sum.x = a.x + b.x;
+		sum.y = a.y + b.y;
+		sum.z = a.z + b.z;
+		return sum;
 	}
 
 	Vector3 operator-(Vector3 a, Vector3 b)
 	{
-		return Vector3();
+		Vector3 sum;
+		sum.x = a.x - b.x;
+		sum.y = a.y - b.y;
+		sum.z = a.z - b.z;
+		return sum;
 	}
 
 	Vector3 operator*(Vector3 _vec, float _scalar)
 	{
-		return Vector3();
+		Vector3 sum;
+		sum.x = _vec.x * _scalar;
+		sum.y = _vec.y * _scalar;
+		sum.z =_vec.z * _scalar;
+		return sum;
 	}
 	Vector3 operator*(float _scalar, Vector3 _vec)
+	{
+		Vector3 sum;
+		sum.x = _scalar* _vec.x;
+		sum.y = _scalar* _vec.y;
+		sum.z = _scalar * _vec.z;
+		return sum;
+	}
+	Vector3 operator/(Vector3 a, float b)
 	{
 		return Vector3();
 	}

@@ -27,6 +27,7 @@ namespace MathClasses
         friend Vector3 operator-(Vector3 a, Vector3 b);
         friend Vector3 operator*(Vector3 a, float b);
         friend Vector3 operator*(float a, Vector3 b);
+        friend Vector3 operator/(Vector3 a, float b);
 
         friend bool operator==(Vector3 a, Vector3 b);
         friend bool operator!=(Vector3 a, Vector3 b);
