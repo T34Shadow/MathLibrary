@@ -46,6 +46,10 @@ void MathClasses::Colour::SetGreen(Byte v)
 {
 }
 
+void MathClasses::Colour::SetBlue(Byte v)
+{
+}
+
 void MathClasses::Colour::SetAlpha(Byte v)
 {
 }

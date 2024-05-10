@@ -9,7 +9,7 @@ namespace MathClasses
 
         Matrix3();
         Matrix3(float a1, float a2, float a3, float a4, float a5,
-            float a6, float a7, float a8, float a9);
+                float a6, float a7, float a8, float a9);
         Matrix3(float* v);
 
         std::string ToString() const;
@@ -28,8 +28,8 @@ namespace MathClasses
 
         Matrix3 Transposed();
 
-        friend Matrix3 operator*(Matrix3 a, Matrix3 b);
-        friend struct Vector3 operator*(Matrix3 a, struct Vector3 b);
+        friend Matrix3 operator*(const Matrix3 &a, const Matrix3 &b);
+        friend struct Vector3 operator*(const Matrix3 &a, const struct Vector3 &b);
 
         friend bool operator==(Matrix3 a, Matrix3 b);
         friend bool operator!=(Matrix3 a, Matrix3 b);

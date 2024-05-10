@@ -18,11 +18,11 @@ namespace MathClasses
         void Normalise();
         Vector4 Cross(Vector4 o) const;
 
-        friend Vector4 operator+(Vector4 a, Vector4 b);
-        friend Vector4 operator-(Vector4 a, Vector4 b);
-        friend Vector4 operator*(Vector4 a, float b);
-        friend Vector4 operator*(float a, Vector4 b);
-        friend Vector4 operator/(Vector4 a, float b);
+        friend Vector4 operator+(const Vector4 &a, const Vector4 &b);
+        friend Vector4 operator-(const Vector4 &a, const Vector4 &b);
+        friend Vector4 operator*(const Vector4 &a, const float &b);
+        friend Vector4 operator*(const float &a, const Vector4 &b);
+        friend Vector4 operator/(const Vector4 &a, const float &b);
 
         friend bool operator==(Vector4 a, Vector4 b);
         friend bool operator!=(Vector4 a, Vector4 b);

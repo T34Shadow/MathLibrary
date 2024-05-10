@@ -44,27 +44,27 @@ namespace MathClasses
 		return Vector4();
 	}
 
-	Vector4 operator+(Vector4 a, Vector4 b)
+	Vector4 operator+(const Vector4 &a,const Vector4 &b)
 	{
 		return Vector4();
 	}
 
-	Vector4 operator-(Vector4 a, Vector4 b)
+	Vector4 operator-(const Vector4 &a, const Vector4 &b)
 	{
 		return Vector4();
 	}
 
-	Vector4 operator*(Vector4 a, float b)
+	Vector4 operator*(const Vector4 &a, const float &b)
 	{
 		return Vector4();
 	}
 
-	Vector4 operator*(float a, Vector4 b)
+	Vector4 operator*(const float &a, const Vector4 &b)
 	{
 		return Vector4();
 	}
 
-	Vector4 operator/(Vector4 a, float b)
+	Vector4 operator/(const Vector4 &a, const float &b)
 	{
 		return Vector4();
 	}
