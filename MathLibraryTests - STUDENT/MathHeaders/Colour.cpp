@@ -1,5 +1,6 @@
 #include "Colour.h"
 
+#include<string>
 
 using Byte = unsigned char;
 

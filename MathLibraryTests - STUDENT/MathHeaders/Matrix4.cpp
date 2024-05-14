@@ -2,6 +2,7 @@
 #include "Vector3.h"
 #include "Vector4.h"
 
+#include<string>
 #include<cmath>
 namespace MathClasses
 {

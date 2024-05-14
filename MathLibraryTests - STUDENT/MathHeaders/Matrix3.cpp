@@ -1,6 +1,7 @@
 #include "Matrix3.h"
 #include "Vector3.h"
 
+#include<string>
 #include<cmath>
 namespace MathClasses
 {

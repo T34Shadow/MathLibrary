@@ -88,19 +88,6 @@ namespace MathClasses
 		return acosf(d);
 	}
 
-	bool Vector3::EqualTo(Vector3 b) const
-	{
-		if (x == b.x && y == b.y && z == b.z)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	
-
 	Vector3 operator+(const Vector3 &a, const Vector3 &b)
 	{
 		Vector3 sum;
@@ -155,9 +142,14 @@ namespace MathClasses
 	}
 	bool operator==(Vector3 a, Vector3 b)
 	{
-		//fabsf(a.x-b.x)
+		
+		float threshold = 0.01;
 
-		if (a.EqualTo(b))
+		float resultX = fabsf(a.x - b.x);
+		float resultY = fabsf(a.y - b.y);
+		float resultZ = fabsf(a.z - b.z);
+				
+		if ((resultX < threshold) && (resultY < threshold) && (resultZ < threshold))
 		{
 			return true;
 		}
@@ -165,19 +157,23 @@ namespace MathClasses
 		{
 			return false;
 		}
-		
 	}
 	bool operator!=(Vector3 a, Vector3 b)
 	{
-		if (!(a.EqualTo(b)))
-		{
-			return true;
-		}
-		else
+		float threshold = 0.01;
+
+		float resultX = fabsf(a.x - b.x);
+		float resultY = fabsf(a.y - b.y);
+		float resultZ = fabsf(a.z - b.z);
+
+		if ((resultX < threshold) || (resultY < threshold) || (resultZ < threshold))
 		{
 			return false;
 		}
-		
+		else
+		{
+			return true;
+		}
 	}
 }
 
