@@ -11,6 +11,7 @@ std::string MathClasses::Colour::ToString() const
 }
 
 MathClasses::Colour::Colour()
+    :colour{255}
 { 
 }
 

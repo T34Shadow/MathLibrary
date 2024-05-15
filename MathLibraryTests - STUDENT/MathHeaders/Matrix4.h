@@ -31,7 +31,7 @@ namespace MathClasses
 
         Matrix4 Transposed();
 
-        friend Matrix4 operator*(Matrix4 a, Matrix4 b);
+        friend Matrix4 operator*(const Matrix4 &a, const Matrix4 &b);
         friend struct Vector4 operator*(Matrix4 a, struct Vector4 b);
 
         friend bool operator==(Matrix4 a, Matrix4 b);

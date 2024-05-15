@@ -63,9 +63,9 @@ namespace MathClasses
 	}
 	Matrix3 Matrix3::MakeTranslation(float x, float y, float z)
 	{
-		//m1 m2 m3 
-		//m4 m5 m6
-		//m7 m8 m9
+		// m1 m4 m7  
+		// m2 m5 m8
+		// m3 m6 m9
 		return Matrix3
 			(1,0,0,
 			 0,1,0,
