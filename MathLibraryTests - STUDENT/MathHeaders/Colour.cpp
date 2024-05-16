@@ -63,5 +63,12 @@ bool MathClasses::operator==(Colour a, Colour b)
 
 bool MathClasses::operator!=(Colour a, Colour b)
 {
-    return false;
+    if (a == b)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
 }

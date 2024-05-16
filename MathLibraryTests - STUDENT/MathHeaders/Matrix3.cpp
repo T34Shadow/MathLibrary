@@ -233,6 +233,13 @@ namespace MathClasses
 	}
 	bool operator!=(Matrix3 a, Matrix3 b)
 	{
-		return false;
+		if (a == b)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 }

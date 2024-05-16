@@ -92,43 +92,76 @@ namespace MathClasses
 	}
 	Matrix4 Matrix4::MakeTranslation(float x, float y, float z)
 	{
-		return Matrix4();
+		return Matrix4
+		(1,0,0,0,
+		 0,1,0,0,
+		 0,0,1,0,
+		 x,y,z,1);
 	}
 	Matrix4 Matrix4::MakeTranslation(Vector3 v)
 	{
-		return Matrix4();
+		return Matrix4().MakeTranslation(v.x,v.y,v.z);
 	}
 	Matrix4 Matrix4::MakeRotateX(float r)
 	{
-		return Matrix4();
+		return Matrix4
+		(1,0,0,0,
+		 0,cosf(r),-sinf(r),0,
+		 0, sinf(r), cosf(r),0,
+		 0,0,0,1);
+		
 	}
 	Matrix4 Matrix4::MakeRotateY(float r)
 	{
-		return Matrix4();
+		return Matrix4
+		(cosf(r), 0, sinf(r), 0,
+		 0,1, 0, 0,
+		 -sinf(r), 0, cosf(r), 0,
+		 0, 0, 0, 1);
 	}
 	Matrix4 Matrix4::MakeRotateZ(float r)
 	{
-		return Matrix4();
+		return Matrix4
+		(cosf(r), sinf(r), 0, 0,
+		 -sinf(r), cosf(r), 0, 0,
+		 0, 0, 1, 0,
+		 0, 0, 0, 1);
 	}
-	Matrix4 Matrix4::MakeEuler(float x, float y, float z)
+	Matrix4 Matrix4::MakeEuler(float pitch, float yaw, float roll)
 	{
-		return Matrix4();
+		Matrix4 x = MakeRotateX(pitch);
+		Matrix4 y = MakeRotateY(yaw);
+		Matrix4 z = MakeRotateZ(roll);
+
+		return(z * y * x);
 	}
 	Matrix4 Matrix4::MakeEuler(Vector3 e)
 	{
-		return Matrix4();
+		Matrix4 x = MakeRotateX(e.x);
+		Matrix4 y = MakeRotateY(e.y);
+		Matrix4 z = MakeRotateZ(e.z);
+
+		return(z * y * x);
 	}
 	Matrix4 Matrix4::MakeScale(float x, float y)
 	{
-		return Matrix4();
+		return Matrix4
+		(x, 0.0f, 0.0f,0.0f,
+			0.0f, y, 0.0f,0.0f,
+			0.0f, 0.0f, 1.0f,0.0f,
+			0.0f,0.0f,0.0f,1.0f);
 	}
 	Matrix4 Matrix4::MakeScale(float x, float y, float z)
 	{
-		return Matrix4();
+		return Matrix4
+		(x, 0.0f, 0.0f, 0.0f,
+			0.0f, y, 0.0f, 0.0f,
+			0.0f, 0.0f, z, 0.0f,
+			0.0f, 0.0f, 0.0f, 1.0f);
 	}
 	Matrix4 Matrix4::MakeScale(Vector3 s)
 	{
-		return Matrix4();
+		return Matrix4().MakeScale(s.x, s.y, s.z);
 	}
 	Matrix4 Matrix4::Transposed()
 	{
@@ -167,14 +200,86 @@ namespace MathClasses
 	}
 	Vector4 operator*(Matrix4 a, Vector4 b)
 	{
-		return Vector4();
+		// m1 m5 m9  m13	x		x
+		// m2 m6 m10 m14	y	=	y
+		// m3 m7 m11 m15	z		z
+		// m4 m8 m12 m16	w		w
+
+		Vector4 sum;
+
+		sum.x = Vector4(a.m1, a.m5, a.m9, a.m13).Dot(Vector4(b.x, b.y, b.z, b.w));
+		sum.y = Vector4(a.m2, a.m6, a.m10, a.m14).Dot(Vector4(b.x, b.y, b.z, b.w));
+		sum.z = Vector4(a.m3, a.m7, a.m11, a.m15).Dot(Vector4(b.x, b.y, b.z, b.w));
+		sum.w = Vector4(a.m4, a.m8, a.m12, a.m16).Dot(Vector4(b.x, b.y, b.z, b.w));
+
+		return sum;
 	}
 	bool operator==(Matrix4 a, Matrix4 b)
 	{
-		return false;
+		// m1 m5 m9  m13
+		// m2 m6 m10 m14
+		// m3 m7 m11 m15
+		// m4 m8 m12 m16
+
+		float threshold = 0.01;
+
+		float resultm1 = fabsf(a.m1 - b.m1);
+		float resultm2 = fabsf(a.m2 - b.m2);
+		float resultm3 = fabsf(a.m3 - b.m3);
+		float resultm4 = fabsf(a.m4 - b.m4);
+		float resultm5 = fabsf(a.m5 - b.m5);
+		float resultm6 = fabsf(a.m6 - b.m6);
+		float resultm7 = fabsf(a.m7 - b.m7);
+		float resultm8 = fabsf(a.m8 - b.m8);
+		float resultm9 = fabsf(a.m9 - b.m9);
+		float resultm10 = fabsf(a.m10 - b.m10);
+		float resultm11 = fabsf(a.m11 - b.m11);
+		float resultm12 = fabsf(a.m12 - b.m12);
+		float resultm13 = fabsf(a.m13 - b.m13);
+		float resultm14 = fabsf(a.m14 - b.m14);
+		float resultm15 = fabsf(a.m15 - b.m15);
+		float resultm16 = fabsf(a.m16 - b.m16);
+
+		bool column1 = false;
+		bool column2 = false;
+		bool column3 = false;
+		bool column4 = false;
+
+		if ((resultm1 < threshold) && (resultm2 < threshold) && (resultm3 < threshold) && (resultm4 < threshold))
+		{
+			column1 = true;
+		}
+		if ((resultm5 < threshold) && (resultm6 < threshold) && (resultm7 < threshold) && (resultm8 < threshold))
+		{
+			column2 = true;
+		}
+		if ((resultm9 < threshold) && (resultm10 < threshold) && (resultm11 < threshold) && (resultm12 < threshold))
+		{
+			column3 = true;
+		}
+		if ((resultm13 < threshold) && (resultm14 < threshold) && (resultm15 < threshold) && (resultm16 < threshold))
+		{
+			column4 = true;
+		}
+
+		if (column1 && column2 && column3 && column4 == true)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	bool operator!=(Matrix4 a, Matrix4 b)
 	{
-		return false;
+		if (a == b)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 }

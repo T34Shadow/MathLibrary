@@ -150,14 +150,7 @@ namespace MathClasses
 
 	bool operator!=(Vector4 a, Vector4 b)
 	{
-		float threshold = 0.01;
-
-		float resultX = fabsf(a.x - b.x);
-		float resultY = fabsf(a.y - b.y);
-		float resultZ = fabsf(a.z - b.z);
-		float resultW = fabsf(a.w - b.w);
-
-		if ((resultX < threshold) || (resultY < threshold) || (resultZ < threshold) || (resultW < threshold))
+		if (a == b)
 		{
 			return false;
 		}
